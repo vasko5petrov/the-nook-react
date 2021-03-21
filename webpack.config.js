@@ -86,10 +86,9 @@ const config = {
     },
     
     devServer: {
+        publicPath: '/',
         contentBase: './dist',
-        historyApiFallback: {
-            index: '/dist/index.html'
-        },
+        historyApiFallback: true,
         host: '0.0.0.0',
         public: 'http://localhost:8080',
         proxy: {
