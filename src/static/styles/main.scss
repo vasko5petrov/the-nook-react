@@ -1,0 +1,24 @@
+@import "./colors.scss";
+@import "./global.scss";
+
+$tablet: "(max-width: 1024px)";
+
+%flex-container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+%flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-space-between {
+    justify-content: space-between;
+    align-items: center;
+}

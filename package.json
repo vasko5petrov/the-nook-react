@@ -25,6 +25,7 @@
     "cache-loader": "^4.1.0",
     "change-case": "^4.1.1",
     "classnames": "^2.2.6",
+    "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^4.3.0",
     "eslint-plugin-react": "^7.20.6",
     "file-loader": "^6.1.0",

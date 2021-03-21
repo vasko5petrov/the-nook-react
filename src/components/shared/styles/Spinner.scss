@@ -1,3 +1,5 @@
+@import "static/styles/colors.scss";
+
 .loading {
   animation: clockwise 1.5s linear infinite;
   display: block;
@@ -9,7 +11,7 @@
   &, &:before, &:after {
     border: .2em solid transparent;
     border-radius: 50%;
-    border-top-color: orange;
+    border-top-color: $blue;
     margin: auto;
   }
 

@@ -1,7 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const config = {
     entry: {
@@ -93,11 +93,11 @@ const config = {
             chunks: ['bundle'],
             filename: './index.html'
         }),
-        // new CopyPlugin({
-        //     patterns: [
-        //         { from: './src/assets', to: 'assets' }
-        //     ]
-        // })
+        new CopyPlugin({
+            patterns: [
+                { from: './src/assets', to: 'assets' }
+            ]
+        })
     ],
     optimization: {
         runtimeChunk: 'single',
