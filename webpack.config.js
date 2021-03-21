@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: {
-        bundle: ['babel-polyfill', path.resolve(process.cwd(), 'src', 'index.jsx')],
+        bundle: ['babel-polyfill', path.resolve(process.cwd(), 'src', 'main.jsx')],
     },
     output: {
         path: path.resolve(process.cwd(), 'dist'),
@@ -91,11 +91,11 @@ const config = {
         },
         host: '0.0.0.0',
         public: 'http://localhost:8080',
-        // proxy: {
-        //     context: ['/api'],
-        //     target: 'http://localhost:3000',
-        //     changeOrigin: true
-        // }
+        proxy: {
+            context: ['/api'],
+            target: 'http://localhost:3000',
+            changeOrigin: true
+        }
     },
     plugins: [
         new MiniCssExtractPlugin({
