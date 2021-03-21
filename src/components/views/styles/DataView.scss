@@ -1,0 +1,6 @@
+@import "~static/styles/main.scss";
+
+.wrapper {
+    @extend %flex-container;
+    flex-wrap: wrap;
+}

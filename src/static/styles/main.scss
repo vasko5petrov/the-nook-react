@@ -3,6 +3,10 @@
 
 $tablet: "(max-width: 1024px)";
 
+%flex-container {
+    display: flex;
+}
+
 %flex-container-column {
     display: flex;
     flex-direction: column;
@@ -21,4 +25,8 @@ $tablet: "(max-width: 1024px)";
 %flex-space-between {
     justify-content: space-between;
     align-items: center;
+}
+
+%flex-item-1 {
+    flex: 1;
 }
