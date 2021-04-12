@@ -3,10 +3,7 @@
 
 .container {
     @extend %flex-item-1;
-    background: $white;
-    border: 1px solid;
-    border-radius: 3px;
-    padding: 20px;
+    @extend %default-box;
     margin: 10px;
     min-width: 200px;
 }

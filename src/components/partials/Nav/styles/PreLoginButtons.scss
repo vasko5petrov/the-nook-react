@@ -20,13 +20,13 @@
 
 .login-button {
     @extend .button;
-    color: $dark-gray;
 }
 
 .register-button {
     @extend .button;
     border-color: $red-100;
     background-color: $red-100;
+    color: $white;
 
     @media (hover: hover) {
         &:hover {
