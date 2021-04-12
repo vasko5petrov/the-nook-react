@@ -8,25 +8,29 @@
 }
 
 .button {
-    padding: 6px 8px;
-    text-transform: uppercase;
-    border: 1px solid $dark-gray;
-    border-radius: 4px;
-    display: block;
-    color: $white;
-    font-size: 13px;
+    @extend %default-button;
     margin: 0 5px;
-    font-weight: 700;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $white-gray-100;
+        }
+    }
 }
 
 .login-button {
     @extend .button;
-    border-color: $orange;
-    background-color: $orange;
+    color: $dark-gray;
 }
 
 .register-button {
     @extend .button;
-    color: $dark-gray;
-    // background-color: $blue;
+    border-color: $red-100;
+    background-color: $red-100;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $red;
+        }
+    }
 }

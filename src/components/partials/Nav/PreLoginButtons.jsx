@@ -4,8 +4,8 @@ import style from './styles/PreLoginButtons.scss';
 
 const PreLoginButtons = () => (
     <div class={style.container}>
-        <Link to="/login" class={style.loginButton}>Log in</Link>
-        <Link to="/register" class={style.registerButton}>Register</Link>
+        <Link to="/login" class={style.loginButton}>Log In</Link>
+        <Link to="/register" class={style.registerButton}>Sign Up</Link>
     </div>
 );
 
