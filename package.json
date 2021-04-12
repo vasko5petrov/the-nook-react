@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development --config webpack.config.js --open --hot -w",
     "build": "webpack --mode production --config webpack.prod.config.js",
     "start-prod": "serve -s dist",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",

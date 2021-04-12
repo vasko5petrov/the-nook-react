@@ -1,0 +1,106 @@
+@import "~static/styles/colors.scss";
+@import "~static/styles/main.scss";
+
+.nav-container {
+    width: 100%;
+    padding: 0 55px;
+    background-color: $white-gray;
+    color: $black;
+    @extend %flex-container-row;
+    @extend %flex-space-between;
+
+    @media #{$tablet} {
+        height: 65px;
+        padding: 0 25px;
+    }
+}
+
+.nav-menu {
+    list-style: none;
+    @extend %flex-container-row;
+
+    @media #{$tablet} {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        box-shadow: 0 4px 4px 0px rgba(0, 0, 0, .3);
+        z-index: 99;
+    }
+}
+
+.display-mobile-nav {
+    display: flex;
+}
+
+
+.nav-menu-item {
+    margin: 0 15px;
+    position: relative;
+    a {
+        display: block;
+        padding: 15px !important;
+        position: relative;
+        color: $black !important;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background-color: $orange;
+        transition: all ease-in-out 0.2s;
+        z-index: 0;
+
+        @media #{$tablet} {
+            width: 0%;
+            height: 100%;
+        }
+    }
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    @media #{$tablet} {
+        margin: 0;
+    }
+}
+
+.active {
+    a {
+        color: $white !important;
+        font-weight: 400;
+    }
+    &:before {
+        height: 100%;
+
+        @media #{$tablet} {
+            width: 100%;
+        }
+    }
+}
+
+.mobile-nav-toggle-btn {
+    display: none;
+    border: 0;
+    font-size: 20px;
+    padding: 5px 15px;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    @media #{$tablet} {
+        display: block;
+    }
+}
+
+.pre-login-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

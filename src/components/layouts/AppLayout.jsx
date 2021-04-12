@@ -1,14 +1,13 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Spinner from 'components/shared/Spinner';
+import Nav from 'components/partials/Nav';
 import routes from 'routes';
-import style from './styles/App.scss';
+import style from './styles/AppLayout.scss';
 
-const App = () => (
-    <React.Fragment>
-        <div class={style.container}>
-            <h1>React/Redux boilerplate</h1>
-        </div>
+const AppLayout = () => (
+    <div class={style.container}>
+        <Nav />
         <Suspense fallback={<Spinner />} >
             <Switch>
                 {routes.map(({ path, exact, component, routes }, index) => (
@@ -22,7 +21,7 @@ const App = () => (
                 ))}
             </Switch>
         </Suspense>
-    </React.Fragment>
+    </div>
 );
 
-export default App;
+export default AppLayout;

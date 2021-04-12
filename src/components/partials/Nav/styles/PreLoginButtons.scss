@@ -1,0 +1,32 @@
+@import "~static/styles/colors.scss";
+@import "~static/styles/main.scss";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    padding: 6px 8px;
+    text-transform: uppercase;
+    border: 1px solid $dark-gray;
+    border-radius: 4px;
+    display: block;
+    color: $white;
+    font-size: 13px;
+    margin: 0 5px;
+    font-weight: 700;
+}
+
+.login-button {
+    @extend .button;
+    border-color: $orange;
+    background-color: $orange;
+}
+
+.register-button {
+    @extend .button;
+    color: $dark-gray;
+    // background-color: $blue;
+}
