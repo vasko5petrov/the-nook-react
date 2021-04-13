@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Map } from 'immutable';
 import { shallow } from 'enzyme';
-
 import SingleElement from '../../../src/components/partials/SingleElement';
 
 const singleElement = Map({
@@ -10,16 +8,10 @@ const singleElement = Map({
     body: 'Test body'
 });
 
-describe('<SingleElement />', function() {
+const wrapper = shallow(<SingleElement singleElement={singleElement} />);
+
+describe('<SingleElement />', () => {
     it('renders without exploding', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<SingleElement singleElement={singleElement} />, div);
+        expect(wrapper).toHaveLength(1)
     });
-    it('has correct welcome text', () => {
-        const wrapper = shallow(<SingleElement singleElement={singleElement} />);
-        expect(
-            wrapper.find('h3').text() === singleElement.get('title')
-            && wrapper.find('p').text() === singleElement.get('body')
-        ).toBe(true);
-    })
 });

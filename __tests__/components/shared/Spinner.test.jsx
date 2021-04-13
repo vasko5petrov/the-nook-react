@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 
 import Spinner from '../../../src/components/shared/Spinner';
 
-describe('<Spinner />', function() {
+const wrapper = shallow(<Spinner  />);
+
+describe('<Spinner />', () => {
     it('renders without exploding', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<Spinner />, div);
+        expect(wrapper).toHaveLength(1)
     });
 });
