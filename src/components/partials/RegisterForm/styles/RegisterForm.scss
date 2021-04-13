@@ -1,0 +1,35 @@
+@import "~static/styles/colors";
+@import "~static/styles/main.scss";
+
+.container {    
+    margin: 0 auto;
+    width: 450px;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.form-container {
+    @extend %default-box;
+}
+
+.fields-container {
+    @extend %flex-container-column;
+    width: 100%;
+}
+
+.register-button {
+    @extend %default-button;
+    border-color: $red-100;
+    background-color: $red-100;
+    color: $white;
+    padding: 10px 13px;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $red;
+        }
+    }
+}

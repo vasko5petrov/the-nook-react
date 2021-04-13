@@ -41,11 +41,23 @@ $tablet: "(max-width: 1024px)";
     color: $dark-gray;
     font-size: 12px;
     font-weight: 500;
+    cursor: pointer;
     transition: all .3s ease;
+    font-family: 'Montserrat', 'Arial', sans-serif;
 }
 
 %default-box {
     padding: 20px 30px;
     background-color: $white;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+}
+
+%default-input {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1px solid $white-gray-100;
+    border-radius: 3px;
+    display: block;
+    color: $dark-gray;
+    font-family: 'Montserrat', 'Arial', sans-serif;
 }
