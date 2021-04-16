@@ -61,3 +61,13 @@ $tablet: "(max-width: 1024px)";
     color: $dark-gray;
     font-family: 'Montserrat', 'Arial', sans-serif;
 }
+
+%default-view-container {
+    width: 70%;
+    margin: 0 auto;
+
+    @media #{$tablet} {
+        width: 100%;
+        padding: 0 15px;
+    }
+}

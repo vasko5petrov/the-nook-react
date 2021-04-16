@@ -1,9 +1,9 @@
 @import "~static/styles/colors";
 @import "~static/styles/main.scss";
 
-.container {    
+.container {
     margin: 0 auto;
-    width: 450px;
+    max-width: 450px;
 }
 
 .title {
@@ -20,7 +20,7 @@
     width: 100%;
 }
 
-.register-button {
+.submit-button {
     @extend %default-button;
     border-color: $red-100;
     background-color: $red-100;

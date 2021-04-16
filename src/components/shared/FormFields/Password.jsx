@@ -1,20 +1,19 @@
 import React from 'react';
-import registerFormField from 'components/partials/RegisterForm/Fields/registerFormField';
-import style from '../styles/RegisterFormFields.scss';
+import { loginFormField, registerFormField } from 'components/shared/FormFields/formFields';
+import style from './styles/FormFields.scss';
 
-@registerFormField({field: 'FirstName'})
-class FirstName extends React.Component {
+class Password extends React.Component {
     render() {
         const { value, error } = this.props;
 
         return (
             <div class={style.fieldWrapper}>
                 <input 
-                    placeholder="First name"
+                    placeholder="Password"
                     onChange={this.handleFieldChange}
                     value={value}
                     onBlur={this.handleFieldValidate}
-                    type="text"
+                    type="password"
                     class={style.field}
                 />
                 <div class={style.errorMessage}>{error}</div>
@@ -23,4 +22,5 @@ class FirstName extends React.Component {
     }
 }
 
-export default FirstName;
+export const LoginPasswordField = loginFormField({field: 'Password'})(Password);
+export const RegisterPasswordField = registerFormField({field: 'Password'})(Password);

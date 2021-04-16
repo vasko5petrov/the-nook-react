@@ -2,6 +2,7 @@ import { lazy } from 'react';
 const DataView = lazy(() => import('components/views/DataView'));
 const Home = lazy(() => import('components/views/Home'));
 const Register = lazy(() => import('components/views/Register'));
+const Login = lazy(() => import('components/views/Login'));
 
 const mainLayout = [
     {
@@ -12,6 +13,10 @@ const mainLayout = [
     {
         path: '/signup',
         component: Register
+    },
+    {
+        path: '/login',
+        component: Login
     },
     {
         path: '/data',

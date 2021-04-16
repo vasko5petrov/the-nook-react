@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-export default ({ form, registerActions, validate, field }) => (ComposedComponent) => {
+export default ({ form, formActions, validate, field }) => (ComposedComponent) => {
     return @connect((store) => ({
         form: store[form],
         value: store[form].getIn(['values', field]),
@@ -10,12 +10,12 @@ export default ({ form, registerActions, validate, field }) => (ComposedComponen
         static displayName = `FormField${ComposedComponent.displayName || ComposedComponent.name}`
 
         handleFieldChange = (e) => {
-            this.props.dispatch(registerActions.updateField({field, value: e.target.value}));
+            this.props.dispatch(formActions.updateField({field, value: e.target.value}));
         }
 
         handleFieldValidate = () => {
             const errors = validate(this.props.form.get('values'));
-            this.props.dispatch(registerActions.updateError({field, value: errors.get(field)}));
+            this.props.dispatch(formActions.updateError({field, value: errors.get(field)}));
         }
     };
 };

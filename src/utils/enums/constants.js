@@ -11,6 +11,8 @@ export const navItems = [
     }
 ];
 
-export const REGISTER_PAGE_FIELDS = List([
+export const REGISTER_FIELDS = List([
     'FirstName', 'LastName', 'Email', 'Password', 'PasswordConfirmation'
 ]);
+
+export const LOGIN_FIELDS = List(['Email', 'Password']);
