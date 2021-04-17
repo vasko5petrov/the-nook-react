@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Spinner from 'components/shared/Spinner';
+import Fields from 'components/shared/FormFields/registerFormFields';
 import validate from 'utils/validations/registerForm';
 import hasErrors from 'utils/helpers/hasErrors';
 import { REGISTER_FIELDS } from 'utils/enums/constants';
-import Fields from 'components/shared/FormFields/registerFormFields';
 import * as registerActions from 'store/modules/registerForm';
 import style from './styles/PreLoginForm.scss';
 
 const mapStateToProps = (store) => ({
+    account: store.user.get('account'),
     form: store.registerForm
 });
-const RegisterForm = ({ dispatch, form, history }) => {
+const RegisterForm = ({ dispatch, form, account, history }) => {
 
     useEffect(() => {
+        if (account) {
+            history.push('/');
+        }
         return () => {
             dispatch(registerActions.reset());
         }
@@ -21,11 +26,10 @@ const RegisterForm = ({ dispatch, form, history }) => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        const errors = validate(form.get('values'), 'registerForm');
-        if (!hasErrors(REGISTER_FIELDS, errors) && !hasErrors(REGISTER_FIELDS, form.get('serverErrors'))) {
+        const errors = validate(form.get('values'));
+        if (!hasErrors(REGISTER_FIELDS, errors)) {
             const data = await dispatch(registerActions.register(form.get('values')));
-            
-            if(!data.value.data.HasErrors) {
+            if(data.value.data.message) {
                 history.push('/');
             }
         } else {
@@ -43,7 +47,10 @@ const RegisterForm = ({ dispatch, form, history }) => {
 
                         return <FieldComponent key={field} />;
                     })}
-                    <button type="submit" class={style.submitButton}>Sign up</button>
+                    <button type="submit" class={style.submitButton} disabled={form.get('loading')}>
+                        {form.get('loading')? <Spinner color="white" /> : 'Sign up'}
+                    </button>
+                    {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
                 </div>
             </form>
         </div>

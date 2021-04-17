@@ -33,3 +33,11 @@
         }
     }
 }
+
+.server-error-message {
+    text-align: center;
+    color: $red-100;
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 10px;
+}

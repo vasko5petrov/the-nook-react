@@ -4,7 +4,7 @@ export default ({ form, formActions, validate, field }) => (ComposedComponent) =
     return @connect((store) => ({
         form: store[form],
         value: store[form].getIn(['values', field]),
-        error: store[form].getIn(['clientErrors', field]) || store[form].getIn(['serverErrors', field])
+        error: store[form].getIn(['clientErrors', field]) || store[form].getIn(['serverError', field])
     }))
     class extends ComposedComponent {
         static displayName = `FormField${ComposedComponent.displayName || ComposedComponent.name}`

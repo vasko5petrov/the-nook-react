@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 const config = {
     entry: {
-        bundle: ['babel-polyfill', path.resolve(process.cwd(), 'src', 'index.jsx')],
+        bundle: ['babel-polyfill', path.resolve(process.cwd(), 'src', 'main.jsx')],
     },
     output: {
         path: path.resolve(process.cwd(), 'dist'),

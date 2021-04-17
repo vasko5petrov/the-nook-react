@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import NavMenu from './NavMenu';
 import PreLoginButtons from './PreLoginButtons';
 import style from './styles/Nav.scss';
 
-class Nav extends Component {
-    render() {
-        return (
-            <nav class={style.navContainer}>
-                <NavMenu />
-                <PreLoginButtons />
-            </nav>
-        );
-    }
-}
+const mapStateToProps = (store) => ({
+    account: store.user.get('account')
+});
 
-export default Nav;
+const Nav = ({account}) => (
+    <nav class={style.navContainer}>
+        <NavMenu />
+        {!account && <PreLoginButtons />}
+    </nav>
+);
+
+export default connect(mapStateToProps)(Nav);

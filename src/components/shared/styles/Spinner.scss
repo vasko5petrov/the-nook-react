@@ -3,37 +3,44 @@
 .loading {
     animation: clockwise 1.5s linear infinite;
     display: block;
-    height: 2em;
+    height: 1em;
     margin: auto;
     position: relative;
-    width: 2em;
+    width: 1em;
 
     &, &:before, &:after {
-		border: .2em solid transparent;
-		border-radius: 50%;
-		border-top-color: $red;
-		margin: auto;
+        border: .2em solid transparent;
+        border-radius: 50%;
+        border-top-color: $red;
+        margin: auto;
     }
 
     &:before, &:after{
-		content: '';
-		position: absolute;
+        content: '';
+        position: absolute;
     }
 
     &:before{
-		animation: anticlockwise .9s linear infinite;
-		top: -.6em;
-		right: -.6em;
-		bottom: -.6em;
-		left: -.6em;
+        animation: anticlockwise .9s linear infinite;
+        top: -.6em;
+        right: -.6em;
+        bottom: -.6em;
+        left: -.6em;
     }
 
     &:after {
-		animation: anticlockwise .66s linear infinite;
-		top: .3em;
-		right: .3em;
-		bottom: .3em;
-		left: .3em;
+        animation: anticlockwise .66s linear infinite;
+        top: .3em;
+        right: .3em;
+        bottom: .3em;
+        left: .3em;
+    }
+}
+
+.white-loading {
+    @extend .loading;
+    &, &:before, &:after {
+        border-top-color: $white !important;
     }
 }
 

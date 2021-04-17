@@ -9,15 +9,18 @@ export const DEFAULT_STATE = Map({
         Email: '',
         Password: '',
     }),
+    loading: false,
     clientErrors: Map(),
-    serverErrors: Map(),
+    serverError: null,
 });
 
 const { reducer: loginForm, actions, actionCreators } = createFormReducer(DEFAULT_STATE, (state, action) => {
-    if (action.type === `${LOGIN}_FULFILLD`) {
-        const response = fromJS(action.payload.data);
-
-        return state.set('serverErrors', response.get('Errors') || Map());
+    if (action.type === `${LOGIN}_PENDING`) {
+        return state.set('loading', true);
+    }
+    if (action.type === `${LOGIN}_REJECTED`) {
+        const response = fromJS(action.payload.response.data);
+        return state.set('serverError', response.get('message') || '').set('loading', false);
     }
 
     return state;

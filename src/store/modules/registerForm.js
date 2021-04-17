@@ -6,21 +6,24 @@ export const REGISTER = 'registerForm/REGISTER';
 
 export const DEFAULT_STATE = Map({
     values: Map({
-        Password: '',
-        PasswordConfirmation: '',
-        Email: '',
         FirstName: '',
-        LastName: ''
+        LastName: '',
+        Email: '',
+        Password: '',
+        PasswordConfirmation: ''
     }),
+    loading: false,
     clientErrors: Map(),
-    serverErrors: Map(),
+    serverError: ''
 });
 
 const { reducer: registerForm, actions, actionCreators } = createFormReducer(DEFAULT_STATE, (state, action) => {
-    if (action.type === `${REGISTER}_FULFILLD`) {
-        const response = fromJS(action.payload.data);
-
-        return state.set('serverErrors', response.get('Errors') || Map());
+    if (action.type === `${REGISTER}_PENDING`) {
+        return state.set('loading', true);
+    }
+    if (action.type === `${REGISTER}_REJECTED`) {
+        const response = fromJS(action.payload.response.data);
+        return state.set('serverError', response.get('message') || '').set('loading', false);
     }
 
     return state;

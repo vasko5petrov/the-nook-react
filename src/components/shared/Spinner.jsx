@@ -1,6 +1,10 @@
 import React from 'react';
-import styles from './styles/Spinner.scss';
+import classnames from 'classnames';
+import style from './styles/Spinner.scss';
 
-const Spinner = () => <div class={styles.loading}></div>;
+const Spinner = ({color}) => {
+    const spinnerStyles = classnames(style.loading, {[style.whiteLoading]: color === 'white'});
+    return <div class={spinnerStyles}></div>
+};
 
 export default Spinner;

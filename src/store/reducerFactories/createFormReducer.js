@@ -9,7 +9,7 @@ const createFormReducer = (defaultState, composedReducer, formName) => {
         reducer: (state=defaultState, action) => {
             if (action.type === UPDATE_FIELD) {
                 return composedReducer(
-                    state.setIn(['values', action.payload.field], action.payload.value).deleteIn(['serverErrors', action.payload.field]),
+                    state.setIn(['values', action.payload.field], action.payload.value).delete(['serverError']),
                     action
                 );
             }
