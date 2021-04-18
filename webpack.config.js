@@ -39,16 +39,6 @@ const config = {
                 use: 'file-loader?name=assets/fonts/[name].[ext]'
             },
             {
-                test: /\.(jpe?g|png|gif|svg|ttf|otf|woff2?|eot)(\?.+)?$/i,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        publicPath: '/dist/',
-                        name: '[name].[ext]'
-                    }
-                }]
-            },
-            {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,

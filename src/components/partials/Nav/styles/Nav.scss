@@ -80,6 +80,15 @@
     align-items: center;
 }
 
+.user-menu-container {
+    @extend %flex-container;
+    @extend %flex-center;
+}
+
+.user-name {
+    margin-right: 10px;
+}
+
 .logout-button {
     @extend %default-button;
 }

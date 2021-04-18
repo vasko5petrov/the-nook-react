@@ -19,9 +19,9 @@ const UserMenu = ({ account, dispatch, history }) => {
     };
 
     return (
-        <div>
-            <p>Profile: {account.get('FirstName')}</p>
-            <div onClick={handleLogout} className={style.logoutButton}>Log out</div>
+        <div class={style.userMenuContainer}>
+            <p class={style.userName}>{account.get('FirstName')} {account.get('LastName')}</p>
+            <div onClick={handleLogout} className={style.logoutButton}>sign out</div>
         </div>
     )
 }

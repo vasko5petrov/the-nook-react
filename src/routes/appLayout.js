@@ -20,7 +20,8 @@ const mainLayout = [
     },
     {
         path: '/data',
-        component: DataView
+        component: DataView,
+        protectedRoute: true
     }
 ];
 

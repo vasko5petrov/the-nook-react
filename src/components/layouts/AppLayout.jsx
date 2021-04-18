@@ -1,10 +1,16 @@
 import React, { useEffect, Suspense } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import ProtectedRoute from 'components/shared/ProtectedRoute';
 import getUserAsPrerequisite from 'utils/helpers/getUserAsPrerequisite';
 import Spinner from 'components/shared/Spinner';
 import Nav from 'components/partials/Nav';
 import routes from 'routes';
 import style from './styles/AppLayout.scss';
+
+const RouteComponents = {
+    Route,
+    ProtectedRoute
+};
 
 const AppLayout = ({location, history: { replace }}) => {
 
@@ -17,15 +23,18 @@ const AppLayout = ({location, history: { replace }}) => {
             <Nav />
             <Suspense fallback={<Spinner />} >
                 <Switch>
-                    {routes.map(({ path, exact, component, routes }, index) => (
-                        <Route
-                            key={index}
-                            path={path}
-                            exact={exact}
-                            component={component}
-                            routes={routes}
-                        />
-                    ))}
+                    {routes.map(({ path, exact, component, routes, protectedRoute }, index) => {
+                        const RouteComponent = RouteComponents[protectedRoute ? 'ProtectedRoute' : 'Route'];
+                        return (
+                            <RouteComponent
+                                key={index}
+                                path={path}
+                                exact={exact}
+                                component={component}
+                                routes={routes}
+                            />
+                        );
+                    })}
                 </Switch>
             </Suspense>
         </div>
