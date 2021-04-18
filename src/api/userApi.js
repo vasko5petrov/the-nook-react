@@ -9,11 +9,11 @@ export default class userApi {
         return axios.post('/api/authenticate', data);
     }
 
+    static logout() {
+        return axios.post('/api/logout');
+    }
+
     static getUser() {
-        return axios.get('/api/getUser', {
-            headers: {
-                'Authorization': localStorage.getItem('authToken')
-            }
-        });
+        return axios.get('/api/getUser');
     }
 }

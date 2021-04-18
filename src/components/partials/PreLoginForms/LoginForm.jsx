@@ -31,9 +31,10 @@ const LoginForm = ({ form, dispatch, account, history }) => {
         const errors = validate(form.get('values'));
         if (!hasErrors(LOGIN_FIELDS, errors)) {
             const data = await dispatch(actions.login(form.get('values')));
-            localStorage.setItem('authToken', data.value.data.authToken);
             dispatch(userActions.getUser());
-            history.push('/');
+            if(data.value.data.message) {
+                history.push('/');
+            }
         } else {
             dispatch(actions.updateErrors(errors));
         }

@@ -7,6 +7,7 @@ import validate from 'utils/validations/registerForm';
 import hasErrors from 'utils/helpers/hasErrors';
 import { REGISTER_FIELDS } from 'utils/enums/constants';
 import * as registerActions from 'store/modules/registerForm';
+import * as userActions from 'store/actions/user';
 import style from './styles/PreLoginForm.scss';
 
 const mapStateToProps = (store) => ({
@@ -29,6 +30,7 @@ const RegisterForm = ({ dispatch, form, account, history }) => {
         const errors = validate(form.get('values'));
         if (!hasErrors(REGISTER_FIELDS, errors)) {
             const data = await dispatch(registerActions.register(form.get('values')));
+            dispatch(userActions.getUser());
             if(data.value.data.message) {
                 history.push('/');
             }

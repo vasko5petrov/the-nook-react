@@ -8,5 +8,6 @@ export const getUser = () => ({
 });
 
 export const logout = () => ({
-    type: LOGOUT
+    type: LOGOUT,
+    payload: UserApi.logout()
 });

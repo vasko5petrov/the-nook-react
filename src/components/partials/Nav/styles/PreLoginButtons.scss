@@ -10,12 +10,6 @@
 .button {
     @extend %default-button;
     margin: 0 5px;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: $white-gray-100;
-        }
-    }
 }
 
 .login-button {
@@ -30,7 +24,7 @@
 
     @media (hover: hover) {
         &:hover {
-            background-color: $red;
+            background-color: $red !important;
         }
     }
 }

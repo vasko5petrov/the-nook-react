@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NavMenu from './NavMenu';
 import PreLoginButtons from './PreLoginButtons';
+import UserMenu from './UserMenu';
 import style from './styles/Nav.scss';
 
 const mapStateToProps = (store) => ({
@@ -11,7 +12,7 @@ const mapStateToProps = (store) => ({
 const Nav = ({account}) => (
     <nav class={style.navContainer}>
         <NavMenu />
-        {!account && <PreLoginButtons />}
+        {!account ? <PreLoginButtons /> : <UserMenu />}
     </nav>
 );
 

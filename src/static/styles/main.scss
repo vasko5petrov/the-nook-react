@@ -44,6 +44,12 @@ $tablet: "(max-width: 1024px)";
     cursor: pointer;
     transition: all .3s ease;
     font-family: 'Montserrat', 'Arial', sans-serif;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $white-gray-100;
+        }
+    }
 }
 
 %default-box {
