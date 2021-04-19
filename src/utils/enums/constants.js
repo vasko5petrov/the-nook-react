@@ -1,15 +1,16 @@
 import { List } from 'immutable';
 
-export const navItems = [
+export const navItems = List([
     {
         path: '/',
         title: 'Home'
     },
     {
         path: '/data',
-        title: 'Data'
+        title: 'Data',
+        protectedRoute: true
     }
-];
+]);
 
 export const REGISTER_FIELDS = List([
     'FirstName',
