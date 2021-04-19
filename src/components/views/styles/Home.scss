@@ -2,14 +2,14 @@
 @import "~static/styles/main.scss";
 
 .container {
+    @extend %default-view-container;
+}
+
+.welcome-text {
     @extend %default-box;
     max-width: 550px;
     width: 90%;
     margin: 150px auto 0;
-    border-radius: 4px;
     text-align: center;
-}
-
-h3 {
     font-weight: 300;
 }

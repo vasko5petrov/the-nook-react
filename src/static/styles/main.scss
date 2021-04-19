@@ -52,7 +52,21 @@ $tablet: "(max-width: 1024px)";
     }
 }
 
+%default-button-red {
+    @extend %default-button;
+    border-color: $red-100;
+    background-color: $red-100;
+    color: $white;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $red !important;
+        }
+    }
+}
+
 %default-box {
+    border-radius: 3px;
     padding: 20px 30px;
     background-color: $white;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);

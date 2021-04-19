@@ -6,13 +6,13 @@ import UserMenu from './UserMenu';
 import style from './styles/Nav.scss';
 
 const mapStateToProps = (store) => ({
-    account: store.user.get('account')
+    profile: store.user.get('profile')
 });
 
-const Nav = ({account}) => (
+const Nav = ({profile}) => (
     <nav class={style.navContainer}>
         <NavMenu />
-        {!account ? <PreLoginButtons /> : <UserMenu />}
+        {!profile ? <PreLoginButtons /> : <UserMenu />}
     </nav>
 );
 

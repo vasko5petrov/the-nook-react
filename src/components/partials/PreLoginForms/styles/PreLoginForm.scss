@@ -21,17 +21,8 @@
 }
 
 .submit-button {
-    @extend %default-button;
-    border-color: $red-100;
-    background-color: $red-100;
-    color: $white;
+    @extend %default-button-red;
     padding: 10px 13px;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: $red;
-        }
-    }
 }
 
 .server-error-message {

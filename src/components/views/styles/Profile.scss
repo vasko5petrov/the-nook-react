@@ -1,0 +1,6 @@
+@import "~static/styles/colors";
+@import "~static/styles/main.scss";
+
+.container {
+    @extend %default-view-container;
+}

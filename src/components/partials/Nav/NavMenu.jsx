@@ -8,10 +8,10 @@ import style from './styles/Nav.scss';
 
 const mapStateToProps = (store) => ({
     mobileNavExpanded: store.ui.get('mobileNavExpanded'),
-    account: store.user.get('account')
+    profile: store.user.get('profile')
 })
 
-const NavMenu = ({ dispatch, mobileNavExpanded, account }) => {
+const NavMenu = ({ dispatch, mobileNavExpanded, profile }) => {
     const toggleNavMenu = () => {
         dispatch(actions.toggleMobileNav());
     }
@@ -21,7 +21,7 @@ const NavMenu = ({ dispatch, mobileNavExpanded, account }) => {
         <React.Fragment>
             <ul class={navMenuStyles}>
                 {navItems.map((navItem) => {
-                    return <NavMenuItem {...navItem} account={!!account} key={navItem.path} />;
+                    return <NavMenuItem {...navItem} profile={!!profile} key={navItem.path} />;
                 })}
             </ul>
             <button class={style.mobileNavToggleBtn} onClick={() => toggleNavMenu()}>=</button>

@@ -3,7 +3,7 @@ import style from './styles/Home.scss';
 
 const Home = () => (
     <div class={style.container}>
-        <h3>Website with user profile features</h3>
+        <h3 class={style.welcomeText}>Website with user profile features</h3>
     </div>
 );
 
