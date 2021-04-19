@@ -1,0 +1,39 @@
+@import "~static/styles/main";
+@import "~static/styles/global";
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+}
+
+.toggle {
+    @extend %default-button-red;
+}
+
+.dropdown-menu {
+    @extend %default-box;
+    padding: 5px 0;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    display: none;
+    z-index: 99;
+}
+
+.active {
+    display: flex;
+}
+
+.dropdown-menu-item {
+    border-radius: 3px;
+    font-size: 13px;
+    list-style: none;
+    padding: 5px 15px;
+    cursor: pointer;
+
+    &:hover {
+        background: $white-gray;
+    }
+}

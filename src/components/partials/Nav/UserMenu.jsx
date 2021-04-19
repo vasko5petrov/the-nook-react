@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Dropdown, { Toggle, Menu, MenuItem } from '../../shared/Dropdown';
 import * as userActions from 'store/actions/user';
-import style from './styles/Nav.scss';
+import style from './styles/UserMenu.scss';
 
 const mapStateToProps = (store) => ({
-    account: store.user.get('account')
+    profile: store.user.get('profile')
 });
 
-const UserMenu = ({ account, dispatch, history }) => {
-    if (!account) return null;
+const UserMenu = ({ profile, dispatch, history }) => {
+    if (!profile) return null;
     const handleLogout = async () => {
         const data = await dispatch(userActions.logout());
         dispatch(userActions.getUser());
@@ -20,8 +21,13 @@ const UserMenu = ({ account, dispatch, history }) => {
 
     return (
         <div class={style.userMenuContainer}>
-            <p class={style.userName}>{account.get('FirstName')} {account.get('LastName')}</p>
-            <div onClick={handleLogout} className={style.logoutButton}>sign out</div>
+            <Dropdown>
+                <Toggle className={style.userDropdown}>{profile.get('FirstName')} {profile.get('LastName')}</Toggle>
+                <Menu>
+                    <MenuItem onClick={() => history.push('/profile')}>Profile</MenuItem>
+                    <MenuItem onClick={handleLogout} className={style.logoutOption}>Log out</MenuItem>
+                </Menu>
+            </Dropdown>
         </div>
     )
 }

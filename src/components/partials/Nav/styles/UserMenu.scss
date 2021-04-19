@@ -1,0 +1,22 @@
+@import "~static/styles/colors.scss";
+@import "~static/styles/main.scss";
+
+.user-menu-container {
+    @extend %flex-container;
+    @extend %flex-center;
+}
+
+.user-dropdown {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 175px;
+
+    @media #{$tablet} {
+        white-space: initial;
+    }
+}
+
+.logout-option {
+    background-color: $white-gray;
+}
