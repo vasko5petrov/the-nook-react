@@ -9,8 +9,8 @@ const config = {
     },
     output: {
         path: path.resolve(process.cwd(), 'dist'),
-        filename: '[name].js',
-        chunkFilename: '[name].js',
+        filename: 'scripts/[name].[hash].js',
+        chunkFilename: 'scripts/[name].[hash].js',
         publicPath: '/'
     },
     resolve: {
@@ -76,7 +76,8 @@ const config = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css'
+            filename: 'styles/[name].[hash].css',
+            chunkFilename: 'styles/[id].[hash].css'
         }),
         new HtmlWebpackPlugin({
             template: './index.html',
@@ -92,13 +93,13 @@ const config = {
     optimization: {
         runtimeChunk: 'single',
         splitChunks: {
-          cacheGroups: {
-            vendor: {
-              test: /[\\\/]node_modules[\\\/]/,
-              name: 'vendors',
-              chunks: 'all'
+            cacheGroups: {
+                vendor: {
+                    test: /[\\\/]node_modules[\\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
             }
-          }
         }
     }
 }

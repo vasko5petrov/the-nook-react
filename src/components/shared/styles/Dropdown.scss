@@ -1,5 +1,4 @@
 @import "~static/styles/main";
-@import "~static/styles/global";
 
 .dropdown {
     position: relative;
@@ -13,12 +12,14 @@
 
 .dropdown-menu {
     @extend %default-box;
-    padding: 5px 0;
     flex-direction: column;
-    cursor: pointer;
-    position: absolute;
-    width: 100%;
     display: none;
+    position: absolute;
+    padding: 5px 0;
+    width: 100%;
+    min-width: 150px;
+    cursor: pointer;
+    right: 0;
     z-index: 99;
 }
 
