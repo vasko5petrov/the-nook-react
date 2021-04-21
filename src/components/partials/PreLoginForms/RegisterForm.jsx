@@ -11,15 +11,11 @@ import * as userActions from 'store/actions/user';
 import style from './styles/PreLoginForm.scss';
 
 const mapStateToProps = (store) => ({
-    profile: store.user.get('profile'),
     form: store.registerForm
 });
-const RegisterForm = ({ dispatch, form, profile, history }) => {
+const RegisterForm = ({ dispatch, form, history }) => {
 
     useEffect(() => {
-        if (profile) {
-            history.push('/');
-        }
         return () => {
             dispatch(registerActions.reset());
         }

@@ -11,16 +11,11 @@ import * as userActions from 'store/actions/user';
 import style from './styles/PreLoginForm.scss';
 
 const mapStateToProps = (store) => ({
-    profile: store.user.get('profile'),
     form: store.loginForm
 });
 
-const LoginForm = ({ form, dispatch, profile, history }) => {
-
+const LoginForm = ({ form, dispatch, location: { prevLocation }, history }) => {
     useEffect(() => {
-        if (profile) {
-            history.push('/');
-        }
         return () => {
             dispatch(actions.reset());
         }
@@ -31,9 +26,9 @@ const LoginForm = ({ form, dispatch, profile, history }) => {
         const errors = validate(form.get('values'));
         if (!hasErrors(LOGIN_FIELDS, errors)) {
             const data = await dispatch(actions.login(form.get('values')));
-            dispatch(userActions.getUser());
+            await dispatch(userActions.getUser());
             if(data.value.data.message) {
-                history.push('/');
+                history.push(prevLocation || '/');
             }
         } else {
             dispatch(actions.updateErrors(errors));

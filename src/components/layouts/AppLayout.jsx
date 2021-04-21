@@ -1,10 +1,12 @@
 import React, { useEffect, Suspense } from 'react';
+import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import ProtectedRoute from 'components/shared/ProtectedRoute';
 import getUserAsPrerequisite from 'utils/helpers/getUserAsPrerequisite';
 import Spinner from 'components/shared/Spinner';
 import Nav from 'components/partials/Nav';
 import routes from 'routes';
+import { isLoading } from '../../utils/helpers/statusChecker';
 import style from './styles/AppLayout.scss';
 
 const RouteComponents = {
@@ -12,11 +14,19 @@ const RouteComponents = {
     ProtectedRoute
 };
 
-const AppLayout = ({location, history: { replace }}) => {
 
+const mapStateToProps = (store) => ({
+    getUserStatus: store.status.getIn(['getUser', 'status'])
+});
+
+const AppLayout = ({ location, history: { replace }, getUserStatus }) => {
     useEffect(() => {
         getUserAsPrerequisite({ replace, path: location.pathname, homeUrl: '/' });
     }, []);
+
+    if (!getUserStatus || isLoading(getUserStatus)) {
+        return <Spinner />;
+    }
 
     return (
         <div class={style.container}>
@@ -41,4 +51,4 @@ const AppLayout = ({location, history: { replace }}) => {
     );
 };
 
-export default withRouter(AppLayout);
+export default withRouter(connect(mapStateToProps)(AppLayout));

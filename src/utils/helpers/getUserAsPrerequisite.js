@@ -6,11 +6,7 @@ const getUserAsPrerequisite = ({ path, replace, homeUrl }) => {
         if (path === '/signup' || path === '/login') {
             replace(homeUrl);
         }
-    }).catch((error) => {
-        if (error.response.status === 403 && path.startsWith('/user')) {
-            replace(homeUrl);
-        }
-    })
+    });
 };
 
 export default getUserAsPrerequisite;

@@ -22,6 +22,9 @@ const { reducer: loginForm, actions, actionCreators } = createFormReducer(DEFAUL
         const response = fromJS(action.payload.response.data);
         return state.set('serverError', response.get('message') || '').set('loading', false);
     }
+    if (action.type === `${LOGIN}_FULFILLED`) {
+        return state.set('loading', false);
+    }
 
     return state;
 }, 'loginForm');

@@ -7,9 +7,6 @@ export const DEFAULT_STATE = Map({
 });
 
 export default function (state = DEFAULT_STATE, action) {
-    if (action.type === `${GET_USER}_REJECTED`) {
-    }
-
     if (action.type === `${GET_USER}_FULFILLED`) {
         return state.set('profile', fromJS(action.payload.data));
     }

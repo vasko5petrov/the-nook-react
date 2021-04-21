@@ -1,8 +1,8 @@
 import createStatusReducer from '../reducerFactories/createStatusReducer';
 import { GET_DATA } from 'store/actions/data';
-import { LOGIN } from 'store/modules/loginForm';
+import { GET_USER } from 'store/actions/user';
 
 export default createStatusReducer([
     { action: GET_DATA },
-    { action: LOGIN },
+    { action: GET_USER }
 ]);

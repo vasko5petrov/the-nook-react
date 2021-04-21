@@ -25,6 +25,9 @@ const { reducer: registerForm, actions, actionCreators } = createFormReducer(DEF
         const response = fromJS(action.payload.response.data);
         return state.set('serverError', response.get('message') || '').set('loading', false);
     }
+    if (action.type === `${REGISTER}_FULFILLED`) {
+        return state.set('loading', false);
+    }
 
     return state;
 }, 'registerForm');

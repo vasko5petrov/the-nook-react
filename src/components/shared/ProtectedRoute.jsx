@@ -7,7 +7,7 @@ const mapStateToProps = (store) => ({
 });
 
 const ProtectedRoute = ({ component: Component, profile, ...rest }) => (
-    <Route {...rest} render={(props) => (profile ? <Component {...rest} {...props} /> : <Redirect to='/' />)} />
+    <Route {...rest} render={(props) => (profile ? <Component {...rest} {...props} /> : <Redirect to={{pathname: '/login', prevLocation: props.location.pathname}} />)} />
 );
 
 export default connect(mapStateToProps)(ProtectedRoute);
