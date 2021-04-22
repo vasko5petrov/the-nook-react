@@ -1,25 +1,25 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Spinner from 'components/shared/Spinner';
 import Fields from 'components/shared/FormFields/registerFormFields';
 import validate from 'utils/validations/registerForm';
 import hasErrors from 'utils/helpers/hasErrors';
 import { REGISTER_FIELDS } from 'utils/enums/constants';
-import * as registerActions from 'store/modules/registerForm';
+import * as actions from 'store/modules/registerForm';
 import * as userActions from 'store/actions/user';
 import style from './styles/PreLoginForm.scss';
 
-const mapStateToProps = (store) => ({
-    form: store.registerForm
-});
-const RegisterForm = ({ dispatch, form, history }) => {
+const RegisterForm = () => {
+    const form = useSelector((store) => store.registerForm);
+    const dispatch = useDispatch();
+    const history = useHistory()
 
     useEffect(() => {
         return () => {
-            dispatch(registerActions.reset());
+            dispatch(actions.reset());
         }
-    }, [])
+    }, []);
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -53,6 +53,6 @@ const RegisterForm = ({ dispatch, form, history }) => {
             </form>
         </div>
     );
-}
+};
 
-export default withRouter(connect(mapStateToProps)(RegisterForm));
+export default RegisterForm;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, useLocation } from 'react-router-dom';
 import Spinner from 'components/shared/Spinner';
 import Fields from 'components/shared/FormFields/loginFormFields';
 import validate from 'utils/validations/loginForm';
@@ -10,11 +10,12 @@ import * as actions from 'store/modules/loginForm';
 import * as userActions from 'store/actions/user';
 import style from './styles/PreLoginForm.scss';
 
-const mapStateToProps = (store) => ({
-    form: store.loginForm
-});
+const LoginForm = () => {
+    const form = useSelector((store) => store.loginForm);
+    const dispatch = useDispatch();
+    const { prevLocation } = useLocation();
+    const history = useHistory()
 
-const LoginForm = ({ form, dispatch, location: { prevLocation }, history }) => {
     useEffect(() => {
         return () => {
             dispatch(actions.reset());
@@ -53,6 +54,6 @@ const LoginForm = ({ form, dispatch, location: { prevLocation }, history }) => {
             </form>
         </div>
     );
-}
+};
 
-export default withRouter(connect(mapStateToProps)(LoginForm));
+export default LoginForm;

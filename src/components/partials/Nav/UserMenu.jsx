@@ -1,16 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import Dropdown, { Toggle, Menu, MenuItem } from '../../shared/Dropdown';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+import Dropdown, { Toggle, Menu, MenuItem } from 'components/shared/Dropdown';
 import * as userActions from 'store/actions/user';
 import style from './styles/UserMenu.scss';
 
-const mapStateToProps = (store) => ({
-    profile: store.user.get('profile')
-});
+const UserMenu = () => {
+    const profile = useSelector((store) => store.user.get('profile'));
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-const UserMenu = ({ profile, dispatch, history }) => {
-    if (!profile) return null;
     const handleLogout = async () => {
         const data = await dispatch(userActions.logout());
         dispatch(userActions.getUser());
@@ -18,6 +17,8 @@ const UserMenu = ({ profile, dispatch, history }) => {
             history.push('/');
         }
     };
+
+    if (!profile) return null;
 
     return (
         <div class={style.userMenuContainer}>
@@ -29,7 +30,7 @@ const UserMenu = ({ profile, dispatch, history }) => {
                 </Menu>
             </Dropdown>
         </div>
-    )
-}
+    );
+};
 
-export default withRouter(connect(mapStateToProps)(UserMenu));
+export default UserMenu;

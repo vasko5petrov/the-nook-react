@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-export const TOGGLE_MOBILE_NAV = 'vprofil/project/TOGGLE_MOBILE_NAV';
+import { TOGGLE_MOBILE_NAV } from '../actions/ui';
 
 const DEFAULT_STATE = Map({
     mobileNavExpanded: false
@@ -11,7 +11,3 @@ export default function projectReducer(state = DEFAULT_STATE, {type}) {
     }
     return state;
 }
-
-export const toggleMobileNav = () => ({
-    type: TOGGLE_MOBILE_NAV
-});

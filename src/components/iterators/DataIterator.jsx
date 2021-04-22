@@ -1,7 +1,3 @@
-import React from 'react';
-
-const DataIterator = ({data, children}) => {
+export default ({data, children}) => {
     return data ? data.map((singleElement, index) => children(singleElement, index)) : null;
 };
-
-export default (DataIterator);

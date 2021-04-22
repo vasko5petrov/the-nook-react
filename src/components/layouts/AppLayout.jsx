@@ -1,12 +1,12 @@
 import React, { useEffect, Suspense } from 'react';
-import { connect } from 'react-redux';
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Route, Switch, Redirect, useHistory, useLocation } from 'react-router-dom';
 import ProtectedRoute from 'components/shared/ProtectedRoute';
 import getUserAsPrerequisite from 'utils/helpers/getUserAsPrerequisite';
+import { isLoading } from '../../utils/helpers/statusChecker';
 import Spinner from 'components/shared/Spinner';
 import Nav from 'components/partials/Nav';
 import routes from 'routes';
-import { isLoading } from '../../utils/helpers/statusChecker';
 import style from './styles/AppLayout.scss';
 
 const RouteComponents = {
@@ -14,12 +14,11 @@ const RouteComponents = {
     ProtectedRoute
 };
 
+const AppLayout = () => {
+    const getUserStatus = useSelector((store) => store.status.getIn(['getUser', 'status']));
+    const { replace } = useHistory();
+    const location = useLocation();
 
-const mapStateToProps = (store) => ({
-    getUserStatus: store.status.getIn(['getUser', 'status'])
-});
-
-const AppLayout = ({ location, history: { replace }, getUserStatus }) => {
     useEffect(() => {
         getUserAsPrerequisite({ replace, path: location.pathname, homeUrl: '/' });
     }, []);
@@ -52,4 +51,4 @@ const AppLayout = ({ location, history: { replace }, getUserStatus }) => {
     );
 };
 
-export default withRouter(connect(mapStateToProps)(AppLayout));
+export default AppLayout;

@@ -1,12 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const mapStateToProps = (store) => ({
-    data: store.data.get('data')
-});
-
-const DataProvider = ({data, children}) => {
+export default ({ children }) => {
+    const data = useSelector((store) => store.data.get('data'));
     return data ? children(data) : null;
 };
-
-export default connect(mapStateToProps)(DataProvider);

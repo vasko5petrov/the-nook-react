@@ -1,13 +1,12 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const mapStateToProps = (store) => ({
-    profile: store.user.get('profile')
-});
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+    const profile = useSelector((store) => store.user.get('profile'));
+    return (
+        <Route {...rest} render={(props) => (profile ? <Component {...rest} {...props} /> : <Redirect to={{pathname: '/login', prevLocation: props.location.pathname}} />)} />
+    );
+};
 
-const ProtectedRoute = ({ component: Component, profile, ...rest }) => (
-    <Route {...rest} render={(props) => (profile ? <Component {...rest} {...props} /> : <Redirect to={{pathname: '/login', prevLocation: props.location.pathname}} />)} />
-);
-
-export default connect(mapStateToProps)(ProtectedRoute);
+export default ProtectedRoute;

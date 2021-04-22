@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Spinner from 'components/shared/Spinner';
 import * as statusChecker from 'utils/helpers/statusChecker';
 import * as dataActions from 'store/actions/data';
 
-const mapStateToProps = (store) => ({
-    getDataStatus: store.status.getIn(['getData', 'status'])
-});
+const DataLoader = ({ children }) => {
+    const getDataStatus = useSelector((store) => store.status.getIn(['getData', 'status']));
+    const dispatch = useDispatch();
 
-const DataLoader = ({getDataStatus, dispatch, children}) => {
     useEffect(() => {
         if (statusChecker.shouldLoad(getDataStatus)) {
             dispatch(dataActions.loadData());
@@ -20,4 +19,4 @@ const DataLoader = ({getDataStatus, dispatch, children}) => {
     return shouldRender ? children : <Spinner />;
 };
 
-export default connect(mapStateToProps)(DataLoader);
+export default DataLoader;

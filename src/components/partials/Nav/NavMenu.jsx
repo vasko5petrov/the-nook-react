@@ -1,17 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames';
 import NavMenuItem from './NavMenuItem';
 import { navItems } from 'utils/enums/constants';
-import * as actions from 'store/modules/ui';
+import * as actions from 'store/actions/ui';
 import style from './styles/Nav.scss';
 
-const mapStateToProps = (store) => ({
-    mobileNavExpanded: store.ui.get('mobileNavExpanded'),
-    profile: store.user.get('profile')
-})
+const NavMenu = () => {
+    const mobileNavExpanded = useSelector((store) => store.ui.get('mobileNavExpanded'));
+    const profile = useSelector((store) => store.user.get('profile'));
+    const dispatch = useDispatch();
 
-const NavMenu = ({ dispatch, mobileNavExpanded, profile }) => {
     const toggleNavMenu = () => {
         dispatch(actions.toggleMobileNav());
     }
@@ -26,7 +25,7 @@ const NavMenu = ({ dispatch, mobileNavExpanded, profile }) => {
             </ul>
             <button class={style.mobileNavToggleBtn} onClick={() => toggleNavMenu()}>=</button>
         </React.Fragment>
-    )
-}
+    );
+};
 
-export default connect(mapStateToProps)(NavMenu);
+export default NavMenu;
