@@ -25,13 +25,13 @@ const RegisterForm = () => {
         e.preventDefault();
         const errors = validate(form.get('values'));
         if (!hasErrors(REGISTER_FIELDS, errors)) {
-            const data = await dispatch(registerActions.register(form.get('values')));
+            const data = await dispatch(actions.register(form.get('values')));
             dispatch(userActions.getUser());
             if(data.value.data.message) {
                 history.push('/');
             }
         } else {
-            dispatch(registerActions.updateErrors(errors));
+            dispatch(actions.updateErrors(errors));
         }
     };
 
