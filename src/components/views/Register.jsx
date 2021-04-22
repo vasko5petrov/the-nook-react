@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterForm from 'components/partials/PreLoginForms/RegisterForm';
-import style from './styles/PreLoginViews.scss';
+import style from './styles/View.scss';
 
 const Register = () => (
     <div class={style.container}>

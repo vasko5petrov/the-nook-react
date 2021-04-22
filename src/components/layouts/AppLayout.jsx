@@ -1,6 +1,6 @@
 import React, { useEffect, Suspense } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import ProtectedRoute from 'components/shared/ProtectedRoute';
 import getUserAsPrerequisite from 'utils/helpers/getUserAsPrerequisite';
 import Spinner from 'components/shared/Spinner';
@@ -45,6 +45,7 @@ const AppLayout = ({ location, history: { replace }, getUserStatus }) => {
                             />
                         );
                     })}
+                    <Redirect to="/404" />
                 </Switch>
             </Suspense>
         </div>

@@ -5,6 +5,7 @@ const DataView = lazy(() => import('components/views/DataView'));
 const Profile = lazy(() => import('components/views/Profile'));
 const Register = lazy(() => import('components/views/Register'));
 const Login = lazy(() => import('components/views/Login'));
+const NotFound = lazy(() => import('components/views/NotFound'));
 
 const mainLayout = [
     {
@@ -29,6 +30,10 @@ const mainLayout = [
         path: '/profile',
         component: Profile,
         protectedRoute: true
+    },
+    {
+        path: '/404',
+        component: NotFound
     }
 ];
 
