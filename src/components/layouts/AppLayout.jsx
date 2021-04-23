@@ -24,7 +24,11 @@ const AppLayout = () => {
     }, []);
 
     if (!getUserStatus || isLoading(getUserStatus)) {
-        return <Spinner />;
+        return (
+            <div class={style.spinnerContainer}>
+                <Spinner />
+            </div>
+        );
     }
 
     return (
