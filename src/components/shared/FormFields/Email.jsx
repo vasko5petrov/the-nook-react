@@ -1,26 +1,23 @@
 import React from 'react';
-import { loginFormField, registerFormField } from 'components/shared/FormFields/formFields';
+import { useField } from 'utils/customHooks/useField';
 import style from './styles/FormFields.scss';
 
-class Email extends React.Component {
-    render() {
-        const { value, error } = this.props;
-
-        return (
-            <div class={style.fieldWrapper}>
-                <input 
-                    placeholder="Email address"
-                    onChange={this.handleFieldChange}
-                    value={value}
-                    onBlur={this.handleFieldValidate}
-                    type="text"
-                    class={style.field}
-                />
-                <div class={style.errorMessage}>{error}</div>
-            </div>
-        );
-    }
+export const Email = ({type}) => {
+    const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'Email');
+    return (
+        <div class={style.fieldWrapper}>
+            <input 
+                placeholder="Email address"
+                onChange={handleFieldChange}
+                value={value}
+                onBlur={handleFieldValidate}
+                type="email"
+                class={style.field}
+            />
+            <div class={style.errorMessage}>{error}</div>
+        </div>
+    );
 }
 
-export const LoginEmailField = loginFormField({field: 'Email'})(Email);
-export const RegisterEmailField = registerFormField({field: 'Email'})(Email);
+export const LoginEmailField = () => <Email type="login" />
+export const RegisterEmailField = () => <Email type="register" />;

@@ -1,25 +1,22 @@
 import React from 'react';
-import { registerFormField } from 'components/shared/FormFields/formFields';
+import { useField } from 'utils/customHooks/useField';
 import style from './styles/FormFields.scss';
 
-class PasswordConfirmation extends React.Component {
-    render() {
-        const { value, error } = this.props;
-
-        return (
-            <div class={style.fieldWrapper}>
-                <input 
-                    placeholder="Confirm password"
-                    onChange={this.handleFieldChange}
-                    value={value}
-                    onBlur={this.handleFieldValidate}
-                    type="password"
-                    class={style.field}
-                />
-                <div class={style.errorMessage}>{error}</div>
-            </div>
-        )
-    }
+export const PasswordConfirmation = ({type}) => {
+    const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'PasswordConfirmation');
+    return (
+        <div class={style.fieldWrapper}>
+            <input 
+                placeholder="Confirm password"
+                onChange={handleFieldChange}
+                value={value}
+                onBlur={handleFieldValidate}
+                type="password"
+                class={style.field}
+            />
+            <div class={style.errorMessage}>{error}</div>
+        </div>
+    )
 }
 
-export const RegisterPasswordConfirmationField = registerFormField({field: 'PasswordConfirmation'})(PasswordConfirmation);
+export const RegisterPasswordConfirmationField = () => <PasswordConfirmation type="register" />;

@@ -1,25 +1,22 @@
 import React from 'react';
-import { registerFormField } from 'components/shared/FormFields/formFields';
+import { useField } from 'utils/customHooks/useField';
 import style from './styles/FormFields.scss';
 
-class FirstName extends React.Component {
-    render() {
-        const { value, error } = this.props;
-
-        return (
-            <div class={style.fieldWrapper}>
-                <input 
-                    placeholder="First name"
-                    onChange={this.handleFieldChange}
-                    value={value}
-                    onBlur={this.handleFieldValidate}
-                    type="text"
-                    class={style.field}
-                />
-                <div class={style.errorMessage}>{error}</div>
-            </div>
-        )
-    }
+export const FirstName = ({type}) => {
+    const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'FirstName');
+    return (
+        <div class={style.fieldWrapper}>
+            <input 
+                placeholder="First name"
+                onChange={handleFieldChange}
+                value={value}
+                onBlur={handleFieldValidate}
+                type="text"
+                class={style.field}
+            />
+            <div class={style.errorMessage}>{error}</div>
+        </div>
+    )
 }
 
-export const RegisterFirstNameField = registerFormField({field: 'FirstName'})(FirstName);
+export const RegisterFirstNameField = () => <FirstName type="register" />;
