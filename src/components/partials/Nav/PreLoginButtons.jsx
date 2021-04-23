@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import style from './styles/PreLoginButtons.scss';
 
 const PreLoginButtons = () => (
@@ -9,4 +9,4 @@ const PreLoginButtons = () => (
     </div>
 );
 
-export default withRouter(PreLoginButtons);
+export default PreLoginButtons;
