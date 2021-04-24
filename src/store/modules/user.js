@@ -10,6 +10,10 @@ export default function (state = DEFAULT_STATE, action) {
     if (action.type === `${GET_USER}_FULFILLED`) {
         return state.set('profile', fromJS(action.payload.data));
     }
+    
+    if (action.type === `${GET_USER}_REJECTED`) {
+        return state.set('profile', null);
+    }
 
     if (action.type === `${LOGOUT}_FULFILLED`) {
         return state.set('profile', null);

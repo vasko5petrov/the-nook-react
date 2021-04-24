@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import Spinner from 'components/shared/Spinner';
 import Fields from 'components/shared/FormFields/loginFormFields';
 import validate from 'utils/validations/loginForm';
@@ -51,7 +51,9 @@ const LoginForm = () => {
                     </button>
                     {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
                 </div>
+                <Link class={style.forgotPasswordLink} to="/forgot-password">Forgot Password?</Link>
             </form>
+            <p class={style.calloutText}>Need an account? <Link to="/signup">Sign up</Link></p>
         </div>
     );
 };

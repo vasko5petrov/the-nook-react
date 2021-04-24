@@ -10,6 +10,10 @@
     @extend %default-input;
 }
 
+.has-error {
+    border: 1px solid $red;
+}
+
 .error-message {
     color: $red-100;
     font-size: 12px;

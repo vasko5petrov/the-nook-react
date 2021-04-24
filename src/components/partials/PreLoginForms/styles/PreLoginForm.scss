@@ -4,11 +4,22 @@
 .container {
     margin: 0 auto;
     max-width: 450px;
+    font-size: 14px;
+
+    a {
+        color: $red;
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .title {
     margin-bottom: 10px;
-    font-weight: 500;
+    font-weight: 900;
+    font-size: 20px;
 }
 
 .form-container {
@@ -29,6 +40,17 @@
     text-align: center;
     color: $red-100;
     font-weight: 500;
-    font-size: 13px;
     padding-top: 10px;
+}
+
+.forgot-password-link {
+    padding-top: 10px;
+    display: block;
+    font-size: 13px;
+    text-align: center;
+}
+
+.callout-text {
+    text-align: center;
+    padding: 10px 0;
 }

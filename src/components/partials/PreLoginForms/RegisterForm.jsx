@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Spinner from 'components/shared/Spinner';
 import Fields from 'components/shared/FormFields/registerFormFields';
 import validate from 'utils/validations/registerForm';
@@ -51,6 +51,7 @@ const RegisterForm = () => {
                     {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
                 </div>
             </form>
+            <p class={style.calloutText}>Already have an account? <Link to="/login">Login</Link></p>
         </div>
     );
 };
