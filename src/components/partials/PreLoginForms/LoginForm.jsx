@@ -51,7 +51,7 @@ const LoginForm = () => {
                     </button>
                     {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
                 </div>
-                <Link class={style.forgotPasswordLink} to="/forgot-password">Forgot Password?</Link>
+                <Link className={style.forgotPasswordLink} to="/forgot-password">Forgot Password?</Link>
             </form>
             <p class={style.calloutText}>Need an account? <Link to="/signup">Sign up</Link></p>
         </div>

@@ -6,11 +6,11 @@ export const REGISTER = 'registerForm/REGISTER';
 
 export const DEFAULT_STATE = Map({
     values: Map({
-        FirstName: '',
-        LastName: '',
-        Email: '',
-        Password: '',
-        PasswordConfirmation: ''
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        passwordConfirmation: ''
     }),
     loading: false,
     clientErrors: Map(),

@@ -5,9 +5,9 @@ import { RegisterPasswordField } from './Password';
 import { RegisterPasswordConfirmationField } from './PasswordConfirmation';
 
 export default {
-    FirstName: RegisterFirstNameField,
-    LastName: RegisterLastNameField,
-    Email: RegisterEmailField,
-    Password: RegisterPasswordField,
-    PasswordConfirmation: RegisterPasswordConfirmationField
+    firstName: RegisterFirstNameField,
+    lastName: RegisterLastNameField,
+    email: RegisterEmailField,
+    password: RegisterPasswordField,
+    passwordConfirmation: RegisterPasswordConfirmationField
 }

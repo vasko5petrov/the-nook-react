@@ -5,11 +5,11 @@ import { validEmail } from './xssValidations';
 const invalidPassword = (x) => containsUppercase(x) && containsDigit(x);
 
 export default (fields) => Map({
-    Email: validate(fields.get('Email'), [
+    email: validate(fields.get('email'), [
         [required, 'Email is required'],
         [pattern(validEmail.pattern), validEmail.message]
     ]),
-    Password: validate(fields.get('Password'), [
+    password: validate(fields.get('password'), [
         [required, 'Password is required']
     ]),
 });

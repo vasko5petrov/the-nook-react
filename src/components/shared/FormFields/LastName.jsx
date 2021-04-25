@@ -4,7 +4,7 @@ import { useField } from 'utils/customHooks/useField';
 import style from './styles/FormFields.scss';
 
 export const LastName = ({type}) => {
-    const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'LastName');
+    const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'lastName');
     const fieldStyle = classnames(style.field, {[style.hasError]: !!error});
     return (
         <div class={style.fieldWrapper}>

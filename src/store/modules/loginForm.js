@@ -6,8 +6,8 @@ export const LOGIN = 'loginForm/LOGIN';
 
 export const DEFAULT_STATE = Map({
     values: Map({
-        Email: '',
-        Password: '',
+        email: '',
+        password: '',
     }),
     loading: false,
     clientErrors: Map(),

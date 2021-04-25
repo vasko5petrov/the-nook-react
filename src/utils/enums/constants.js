@@ -13,11 +13,11 @@ export const navItems = List([
 ]);
 
 export const REGISTER_FIELDS = List([
-    'FirstName',
-    'LastName',
-    'Email',
-    'Password',
-    'PasswordConfirmation'
+    'firstName',
+    'lastName',
+    'email',
+    'password',
+    'passwordConfirmation'
 ]);
 
-export const LOGIN_FIELDS = List(['Email', 'Password']);
+export const LOGIN_FIELDS = List(['email', 'password']);

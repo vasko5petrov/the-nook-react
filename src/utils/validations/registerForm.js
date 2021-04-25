@@ -5,24 +5,24 @@ import { validFreeText, validEmail } from './xssValidations';
 const invalidPassword = (x) => containsUppercase(x) && containsDigit(x);
 
 export default (fields) => Map({
-    FirstName: validate(fields.get('FirstName'), [
+    firstName: validate(fields.get('firstName'), [
         [required, 'First name is required'],
         [pattern(validFreeText.pattern), validFreeText.message]
     ]),
-    LastName: validate(fields.get('LastName'), [
+    lastName: validate(fields.get('lastName'), [
         [required, 'Last name is required'],
         [pattern(validFreeText.pattern), validFreeText.message]
     ]),
-    Email: validate(fields.get('Email'), [
+    email: validate(fields.get('email'), [
         [required, 'Email is required'],
         [pattern(validEmail.pattern), validEmail.message]
     ]),
-    Password: validate(fields.get('Password'), [
+    password: validate(fields.get('password'), [
         [required, 'Password is required'],
         [minlenght(8), 'Password should be at least 8 characters long'],
         [invalidPassword, 'Password must contain at least one uppercase letter and number']
     ]),
-    PasswordConfirmation: validate(fields.get('PasswordConfirmation'), [
+    passwordConfirmation: validate(fields.get('passwordConfirmation'), [
         [required, 'Password confirmation is required'],
         [equalTo(fields.get('Password')), 'Passwords must match']
     ])
