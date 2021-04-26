@@ -16,4 +16,8 @@ export default class userApi {
     static getUser() {
         return axios.get('/api/getUser');
     }
+
+    static verifyEmail(data) {
+        return axios.post('/api/email/verify', data);
+    }
 }

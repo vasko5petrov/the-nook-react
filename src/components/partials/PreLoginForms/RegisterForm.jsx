@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Spinner from 'components/shared/Spinner';
 import Fields from 'components/shared/FormFields/registerFormFields';
 import validate from 'utils/validations/registerForm';
@@ -12,8 +12,8 @@ import style from './styles/PreLoginForm.scss';
 
 const RegisterForm = () => {
     const form = useSelector((store) => store.registerForm);
+    const [successStatus, setStatus] = useState(false);
     const dispatch = useDispatch();
-    const history = useHistory()
 
     useEffect(() => {
         return () => {
@@ -28,7 +28,8 @@ const RegisterForm = () => {
             const data = await dispatch(actions.register(form.get('values')));
             dispatch(userActions.getUser());
             if(data.value.data.message) {
-                history.push('/');
+                setStatus(true);
+                dispatch(actions.reset());
             }
         } else {
             dispatch(actions.updateErrors(errors));
@@ -38,6 +39,7 @@ const RegisterForm = () => {
     return (
         <div class={style.container}>
             <p class={style.title}>Sign Up</p>
+            <div onClick={() => setStatus(true)}>click</div>
             <form onSubmit={handleRegister} class={style.formContainer}>
                 <div class={style.fieldsContainer}>
                     {REGISTER_FIELDS.map((field) => {
@@ -48,8 +50,9 @@ const RegisterForm = () => {
                     <button type="submit" class={style.submitButton} disabled={form.get('loading')}>
                         {form.get('loading')? <Spinner color="white" /> : 'Sign up'}
                     </button>
-                    {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
                 </div>
+                {successStatus && <div class={style.successMessage}>Verification link was sent to your email. Link expires after 12 hours!</div>}
+                {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
             </form>
             <p class={style.calloutText}>Already have an account? <Link to="/login">Login</Link></p>
         </div>

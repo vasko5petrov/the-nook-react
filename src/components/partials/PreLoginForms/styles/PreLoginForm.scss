@@ -54,3 +54,8 @@
     text-align: center;
     padding: 10px 0;
 }
+
+.success-message {
+    @extend .server-error-message;
+    color: $green;
+}

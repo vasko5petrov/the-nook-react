@@ -11,8 +11,11 @@ const createStatusReducer = (fields) => (state = Map(), action) => {
 
         const key = foundField.key || camelCase(foundField.action.split('/').pop());
 
-        return state.setIn([key, ...statusPath, 'status'], actionStatus)
-            .setIn([key, ...statusPath, 'statusCode'], action.payload && action.payload.status);
+        if (action.payload) {
+            return state.setIn([key, ...statusPath, 'status'], actionStatus)
+                .setIn([key, ...statusPath, 'statusCode'], action.payload.status || action.payload.response.status || null)
+                .setIn([key, ...statusPath, 'message'], action.payload.data && action.payload.data.message || action.payload.response.data.message || null);
+        }
     }
 
     return state;
