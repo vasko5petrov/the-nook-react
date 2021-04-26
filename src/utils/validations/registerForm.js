@@ -24,6 +24,6 @@ export default (fields) => Map({
     ]),
     passwordConfirmation: validate(fields.get('passwordConfirmation'), [
         [required, 'Password confirmation is required'],
-        [equalTo(fields.get('Password')), 'Passwords must match']
+        [equalTo(fields.get('password')), 'Passwords must match']
     ])
 });

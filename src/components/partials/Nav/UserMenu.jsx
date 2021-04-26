@@ -23,7 +23,7 @@ const UserMenu = () => {
     return (
         <div class={style.userMenuContainer}>
             <Dropdown>
-                <Toggle className={style.userDropdown}>{profile.get('FirstName')} {profile.get('LastName')}</Toggle>
+                <Toggle className={style.userDropdown}>{profile.get('firstName')} {profile.get('lastName')}</Toggle>
                 <Menu>
                     <MenuItem onClick={() => history.push('/profile')}>Profile</MenuItem>
                     <MenuItem onClick={handleLogout} className={style.logoutOption}>Log out</MenuItem>
