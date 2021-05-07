@@ -14,7 +14,7 @@ const createStatusReducer = (fields) => (state = Map(), action) => {
         if (action.payload) {
             return state.setIn([key, ...statusPath, 'status'], actionStatus)
                 .setIn([key, ...statusPath, 'statusCode'], action.payload.status || action.payload.response.status || null)
-                .setIn([key, ...statusPath, 'message'], action.payload.data && action.payload.data.message || action.payload.response.data.message || null);
+                .setIn([key, ...statusPath, 'message'], action.payload.data && action.payload.data.message || action.payload.response?.data.message || null);
         }
     }
 

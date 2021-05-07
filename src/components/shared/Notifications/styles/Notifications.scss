@@ -1,0 +1,84 @@
+@import "~static/styles/main";
+
+.container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 300px;
+    z-index: 99;
+}
+
+.notification-item {
+    @extend %default-box;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 12px;
+    padding-right: 18px;
+    animation: show .4s forwards;
+
+    .expiration-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $dark-gray;
+    }
+
+    &.success {
+        background-color: $green;
+        border: 1px solid $green;
+        color: $white;
+
+        .expiration-bar {
+            background-color: $white;
+        }
+    }
+
+    &.error {
+        background-color: $red;
+        border: 1px solid $red;
+        color: $white;
+
+        .expiration-bar {
+            background-color: $white;
+        }
+    }
+
+    &.exit {
+        animation: hide .4s forwards;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+@keyframes show {
+    0% {
+        transform: translateX(120%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes hide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(120%);
+    }
+}
