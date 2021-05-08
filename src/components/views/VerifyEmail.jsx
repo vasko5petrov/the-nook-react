@@ -12,6 +12,7 @@ import style from './styles/VerifyEmail.scss';
 
 const VerifyEmail = () => {
     const verifyEmailStatus = useSelector((store) => store.status.get('verifyEmail'));
+    const user = useSelector((store) => store.user.get('profile'));
     const dispatch = useDispatch();
     const location = useLocation();
 
@@ -35,6 +36,7 @@ const VerifyEmail = () => {
     }
 
     const hasInvalidLink = isRejected(verifyEmailStatus.get('status')) && verifyEmailStatus.get('message').toLowerCase().includes('invalid');
+
     if (isRejected(verifyEmailStatus.get('status')) || isLoaded(verifyEmailStatus.get('status'))) {
         return (
             <div class={viewStyle.container}>
@@ -51,7 +53,7 @@ const VerifyEmail = () => {
                         <p>Your verification link is invalid or has already expired. To receive new one <span onClick={resendVerifyLink} class={style.resendLink}>click here</span>.</p>
                     }
 
-                    {isLoaded(verifyEmailStatus.get('status')) &&
+                    {isLoaded(verifyEmailStatus.get('status')) && !user &&
                         <p>You can <Link to="/login" className={style.loginLink}>log in</Link> to your account.</p>
                     }
                 </div>

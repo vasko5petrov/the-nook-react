@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import { Route, Switch, Redirect, useHistory, useLocation } from 'react-router-dom';
 import ProtectedRoute from 'components/shared/ProtectedRoute';
 import getUserAsPrerequisite from 'utils/helpers/getUserAsPrerequisite';
-import { isLoading } from '../../utils/helpers/statusChecker';
+import { isLoading } from 'utils/helpers/statusChecker';
 import Spinner from 'components/shared/Spinner';
 import NotificationProvider from 'components/shared/Notifications/NotificationProvider';
 import Nav from 'components/partials/Nav';
 import routes from 'routes';
+import { PRELOGIN_PATHS } from 'utils/enums/constants';
 import style from './styles/AppLayout.scss';
 
 const RouteComponents = {
@@ -17,12 +18,19 @@ const RouteComponents = {
 
 const AppLayout = () => {
     const getUserStatus = useSelector((store) => store.status.getIn(['getUser', 'status']));
+    const user = useSelector((store) => store.user.get('profile'));
     const { replace } = useHistory();
     const location = useLocation();
 
     useEffect(() => {
         getUserAsPrerequisite({ replace, path: location.pathname, homeUrl: '/' });
     }, []);
+
+    useEffect(() => {
+        if (user && PRELOGIN_PATHS.includes(location.pathname)) {
+            replace('/');
+        }
+    }, [location]);
 
     if (!getUserStatus || isLoading(getUserStatus)) {
         return (

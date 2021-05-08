@@ -21,3 +21,5 @@ export const REGISTER_FIELDS = List([
 ]);
 
 export const LOGIN_FIELDS = List(['email', 'password']);
+
+export const PRELOGIN_PATHS = List(['/login', '/signup', '/forgot-password']);
