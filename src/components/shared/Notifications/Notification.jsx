@@ -56,6 +56,7 @@ const Notification = ({ message, type, expiration = 4000, id }) => {
         {
             [style.success]: type === 'SUCCESS',
             [style.error]: type === 'ERROR',
+            [style.info]: type === 'INFO',
             [style.exit]: exit
         }
     );

@@ -15,7 +15,7 @@
     overflow: hidden;
     margin-bottom: 10px;
     padding: 12px;
-    padding-right: 18px;
+    padding-right: 25px;
     animation: show .4s forwards;
 
     .expiration-bar {
@@ -44,6 +44,16 @@
 
         .expiration-bar {
             background-color: $white;
+        }
+    }
+
+    &.info {
+        background-color: $white;
+        border: 1px solid $white;
+        color: $dark-gray;
+
+        .expiration-bar {
+            background-color: $blue;
         }
     }
 

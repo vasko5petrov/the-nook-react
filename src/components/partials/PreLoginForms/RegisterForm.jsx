@@ -31,6 +31,10 @@ const RegisterForm = () => {
             if(data.value.data.message) {
                 dispatch(uiActions.addNotification({
                     type: 'SUCCESS',
+                    message: data.value.data.message
+                }));
+                dispatch(uiActions.addNotification({
+                    type: 'INFO',
                     message: 'Verification link was sent to your email. Link expires after 12 hours!',
                     expiration: 16000
                 }));
