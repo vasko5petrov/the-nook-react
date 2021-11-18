@@ -10,7 +10,7 @@ const DataView = () => {
         <DataLoader>
             <DataProvider>
                 {(data) => (
-                    <div class={styles.wrapper}>
+                    <div className={styles.wrapper}>
                         <DataIterator data={data}>
                             {(singleElement, index) => (
                                 <SingleElement singleElement={singleElement} key={index}/>

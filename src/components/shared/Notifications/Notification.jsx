@@ -61,10 +61,10 @@ const Notification = ({ message, type, expiration = 4000, id }) => {
         }
     );
     return (
-        <div class={notficationStyles} onMouseEnter={handlePauseTimer} onMouseLeave={handleStartTimer}>
-            <div onClick={handleCloseNotification} class={style.closeButton}>X</div>
+        <div className={notficationStyles} onMouseEnter={handlePauseTimer} onMouseLeave={handleStartTimer}>
+            <div onClick={handleCloseNotification} className={style.closeButton}>X</div>
             <p>{message}</p>
-            <div class={style.expirationBar} style={{width: `${width}%`}}></div>
+            <div className={style.expirationBar} style={{width: `${width}%`}}></div>
         </div>
     )
 }

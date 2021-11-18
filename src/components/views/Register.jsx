@@ -3,7 +3,7 @@ import RegisterForm from 'components/partials/PreLoginForms/RegisterForm';
 import style from './styles/View.scss';
 
 const Register = () => (
-    <div class={style.container}>
+    <div className={style.container}>
         <RegisterForm />
     </div>
 );

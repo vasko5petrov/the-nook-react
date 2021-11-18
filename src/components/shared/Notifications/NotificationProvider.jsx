@@ -12,7 +12,7 @@ const NotificationProvider = ({ children }) => {
 
     return (
         <div>
-            <div class={style.container}>
+            <div className={style.container}>
                 {notifications.map((notification) => (
                     <Notification
                         key={notification.get('id')}

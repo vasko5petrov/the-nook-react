@@ -17,7 +17,7 @@ const NavMenuItem = ({ path, title, protectedRoute, profile }) => {
     const hideMobileNav = () => mobileNavExpanded && dispatch(actions.toggleMobileNav());
 
     return (
-        <li class={navMenuItemStyles}>
+        <li className={navMenuItemStyles}>
             <Link to={path} onClick={hideMobileNav}>{title}</Link>
         </li>
     );

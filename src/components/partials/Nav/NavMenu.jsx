@@ -18,12 +18,12 @@ const NavMenu = () => {
 
     return (
         <React.Fragment>
-            <ul class={navMenuStyles}>
+            <ul className={navMenuStyles}>
                 {navItems.map((navItem) => {
                     return <NavMenuItem {...navItem} profile={!!profile} key={navItem.path} />;
                 })}
             </ul>
-            <button class={style.mobileNavToggleBtn} onClick={() => toggleNavMenu()}>=</button>
+            <button className={style.mobileNavToggleBtn} onClick={() => toggleNavMenu()}>=</button>
         </React.Fragment>
     );
 };

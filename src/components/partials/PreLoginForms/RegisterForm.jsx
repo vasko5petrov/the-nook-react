@@ -46,22 +46,22 @@ const RegisterForm = () => {
     };
 
     return (
-        <div class={style.container}>
-            <p class={style.title}>Sign Up</p>
-            <form onSubmit={handleRegister} class={style.formContainer}>
-                <div class={style.fieldsContainer}>
+        <div className={style.container}>
+            <p className={style.title}>Sign Up</p>
+            <form onSubmit={handleRegister} className={style.formContainer}>
+                <div className={style.fieldsContainer}>
                     {REGISTER_FIELDS.map((field) => {
                         const FieldComponent = Fields[field];
 
                         return <FieldComponent key={field} />;
                     })}
-                    <button type="submit" class={style.submitButton} disabled={form.get('loading')}>
+                    <button type="submit" className={style.submitButton} disabled={form.get('loading')}>
                         {form.get('loading')? <Spinner color="white" /> : 'Sign up'}
                     </button>
                 </div>
-                {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
+                {form.get('serverError') && <div className={style.serverErrorMessage}>{form.get('serverError')}</div>}
             </form>
-            <p class={style.calloutText}>Already have an account? <Link to="/login">Login</Link></p>
+            <p className={style.calloutText}>Already have an account? <Link to="/login">Login</Link></p>
         </div>
     );
 };

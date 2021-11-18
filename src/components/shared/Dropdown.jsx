@@ -27,7 +27,7 @@ function Dropdown({ className, children }) {
     }));
 
     return (
-        <div class={dropdownStyle}>
+        <div className={dropdownStyle}>
             {childrenWithProps}
         </div>
     );
@@ -42,7 +42,7 @@ export default onClickOutside(Dropdown, clickOutsideConfig);
 export const Toggle = ({ className, changeToggleState, children }) => {
     const dropdownToggleStyle = classnames(style.toggle, className);
     return (
-        <div class={dropdownToggleStyle} onClick={changeToggleState}>{children}</div>
+        <div className={dropdownToggleStyle} onClick={changeToggleState}>{children}</div>
     );
 }
 
@@ -50,11 +50,11 @@ export const Menu = ({ className, changeToggleState, isToggleOpen, children }) =
     const dropdownMenuStyle = classnames(style.dropdownMenu, className, {[style.active]: isToggleOpen});
     return (
         <div>
-            <div class={dropdownMenuStyle} onClick={changeToggleState}>{children}</div>
+            <div className={dropdownMenuStyle} onClick={changeToggleState}>{children}</div>
         </div>
     );
 }
 
 export const MenuItem = ({ className, onClick, children }) => (
-    <div onClick={onClick} class={classnames(style.dropdownMenuItem, className)}>{children}</div>
+    <div onClick={onClick} className={classnames(style.dropdownMenuItem, className)}>{children}</div>
 );

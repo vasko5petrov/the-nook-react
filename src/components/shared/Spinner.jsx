@@ -4,7 +4,7 @@ import style from './styles/Spinner.scss';
 
 const Spinner = ({color}) => {
     const spinnerStyles = classnames(style.loading, {[style.whiteLoading]: color === 'white'});
-    return <div class={spinnerStyles}></div>
+    return <div className={spinnerStyles}></div>
 };
 
 export default Spinner;

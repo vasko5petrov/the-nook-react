@@ -39,8 +39,8 @@ const VerifyEmail = () => {
 
     if (isRejected(verifyEmailStatus.get('status')) || isLoaded(verifyEmailStatus.get('status'))) {
         return (
-            <div class={viewStyle.container}>
-                <div class={style.verificationInfo}>
+            <div className={viewStyle.container}>
+                <div className={style.verificationInfo}>
 
                     {isRejected(verifyEmailStatus.get('status'))
                         ? <img src={errorIcon} alt="Error!" width="50" height="50" />
@@ -50,7 +50,7 @@ const VerifyEmail = () => {
                     <h3>{verifyEmailStatus.get('message')}</h3>
 
                     {hasInvalidLink &&
-                        <p>Your verification link is invalid or has already expired. To receive new one <span onClick={resendVerifyLink} class={style.resendLink}>click here</span>.</p>
+                        <p>Your verification link is invalid or has already expired. To receive new one <span onClick={resendVerifyLink} className={style.resendLink}>click here</span>.</p>
                     }
 
                     {isLoaded(verifyEmailStatus.get('status')) && !user &&

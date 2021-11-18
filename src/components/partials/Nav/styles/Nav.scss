@@ -8,10 +8,10 @@
     top: 0;
     width: 100%;
     padding: 0 55px;
-    background-color: $white;
-    border-bottom: 1px solid $white-gray-100;
+    background-color: $item-background-color;
+    border-bottom: 1px solid $item-border-color;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
-    color: $black;
+    color: $text-color;
     height: 65px;
 
     @media #{$tablet} {
@@ -46,7 +46,7 @@
     a {
         display: block;
         position: relative;
-        color: $black !important;
+        color: $text-color !important;
 
         @media #{$tablet} {
             margin: 0;
@@ -64,13 +64,17 @@
 
 .active {
     a {
-        color: $dark-gray !important;
+        color: $text-color !important;
         font-weight: 500;
     }
     @media #{$tablet} {
-        background-color: $white-gray-100;
+        background-color: $item-border-color;
     }
 }
+
+.dark-mode-toggle-btn {
+    @extend %default-button;
+};
 
 .mobile-nav-toggle-btn {
     @extend %default-button;

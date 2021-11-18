@@ -37,23 +37,23 @@ const LoginForm = () => {
     };
 
     return (
-        <div class={style.container}>
-            <p class={style.title}>Log In</p>
-            <form onSubmit={handleLogin} class={style.formContainer}>
-                <div class={style.fieldsContainer}>
+        <div className={style.container}>
+            <p className={style.title}>Log In</p>
+            <form onSubmit={handleLogin} className={style.formContainer}>
+                <div className={style.fieldsContainer}>
                     {LOGIN_FIELDS.map((field) => {
                         const FieldComponent = Fields[field];
 
                         return <FieldComponent key={field} />;
                     })}
-                    <button type="submit" class={style.submitButton} disabled={form.get('loading')}>
+                    <button type="submit" className={style.submitButton} disabled={form.get('loading')}>
                         {form.get('loading')? <Spinner color="white" /> : 'Login'}
                     </button>
-                    {form.get('serverError') && <div class={style.serverErrorMessage}>{form.get('serverError')}</div>}
+                    {form.get('serverError') && <div className={style.serverErrorMessage}>{form.get('serverError')}</div>}
                 </div>
                 <Link className={style.forgotPasswordLink} to="/forgot-password">Forgot Password?</Link>
             </form>
-            <p class={style.calloutText}>Need an account? <Link to="/signup">Sign up</Link></p>
+            <p className={style.calloutText}>Need an account? <Link to="/signup">Sign up</Link></p>
         </div>
     );
 };

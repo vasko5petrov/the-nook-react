@@ -21,7 +21,7 @@ const UserMenu = () => {
     if (!profile) return null;
 
     return (
-        <div class={style.userMenuContainer}>
+        <div className={style.userMenuContainer}>
             <Dropdown>
                 <Toggle className={style.userDropdown}>{profile.get('firstName')} {profile.get('lastName')}</Toggle>
                 <Menu>

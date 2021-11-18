@@ -1,11 +1,15 @@
 $dark-gray: #333;
 $white: #ffffff;
+$black: #000;
 $white-gray: #f3f3f3;
 $white-gray-100: #e8e8e8;
-$gray: #cccccc;
-$black: #000;
 $blue: #28a;
 $orange: #F90;
 $red: #e4461b;
 $red-100: #cc4d29;
 $green: #2bb673;
+
+$text-color: var(--color);
+$background-color: var(--background-color);
+$item-background-color: var(--item-background-color);
+$item-border-color: var(--item-border-color);

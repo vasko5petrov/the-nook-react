@@ -7,16 +7,16 @@ export const PasswordConfirmation = ({type}) => {
     const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'passwordConfirmation');
     const fieldStyle = classnames(style.field, {[style.hasError]: !!error});
     return (
-        <div class={style.fieldWrapper}>
+        <div className={style.fieldWrapper}>
             <input 
                 placeholder="Confirm password"
                 onChange={handleFieldChange}
                 value={value}
                 onBlur={handleFieldValidate}
                 type="password"
-                class={fieldStyle}
+                className={fieldStyle}
             />
-            <div class={style.errorMessage}>{error}</div>
+            <div className={style.errorMessage}>{error}</div>
         </div>
     )
 }

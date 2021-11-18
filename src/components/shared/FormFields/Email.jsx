@@ -7,16 +7,16 @@ export const Email = ({type}) => {
     const [ handleFieldChange, handleFieldValidate, value, error ] = useField(type, 'email');
     const fieldStyle = classnames(style.field, {[style.hasError]: !!error});
     return (
-        <div class={style.fieldWrapper}>
+        <div className={style.fieldWrapper}>
             <input 
                 placeholder="Email address"
                 onChange={handleFieldChange}
                 value={value}
                 onBlur={handleFieldValidate}
                 type="email"
-                class={fieldStyle}
+                className={fieldStyle}
             />
-            <div class={style.errorMessage}>{error}</div>
+            <div className={style.errorMessage}>{error}</div>
         </div>
     );
 }
